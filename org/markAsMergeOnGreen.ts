@@ -17,10 +17,6 @@ export default async (issueComment: IssueComment) => {
   const issue = issueComment.issue
   const comment = issueComment.comment
   const api = new Octokit()
-  console.log("--------- danger")
-  console.log(danger)
-  console.log("--------- api")
-  console.log(api)
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
@@ -74,6 +70,6 @@ export default async (issueComment: IssueComment) => {
   }
 
   // Then add the label
-  await api.issues.addLabels({ owner, repo, number: issue.number, labels: ["Merge On Green"] })
+  await api.issues.addLabels({ owner, repo, issue_number: issue.number, labels: ["Merge On Green"] })
   console.log("Updated the PR with a Merge on Green label")
 }
