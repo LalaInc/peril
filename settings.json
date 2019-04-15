@@ -7,7 +7,7 @@
     ]
   },
   "rules": {
-    "pull_request": "org/markAsMergeOnGreen.ts",
+    "issue_comment": "org/markAsMergeOnGreen.ts",
     "status.success": "org/mergeOnGreen.ts"
   }
 }
