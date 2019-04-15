@@ -1,4 +1,4 @@
-import { danger } from "danger"
+import { danger, message } from "danger"
 import { IssueComment } from "github-webhook-event-types"
 import Octokit = require("@octokit/rest")
 
@@ -16,7 +16,10 @@ interface Label {
 export default async (issueComment: IssueComment) => {
   const issue = issueComment.issue
   const comment = issueComment.comment
-  const api = new Octokit()
+  const api = danger.github.api
+  
+  console.log("-- DANGERR ---------------")
+  console.log(danger)
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
