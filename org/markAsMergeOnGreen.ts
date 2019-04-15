@@ -1,5 +1,6 @@
 import { danger } from "danger"
 import { IssueComment } from "github-webhook-event-types"
+import Octokit from '@octokit/rest';
 
 // The shape of a label
 interface Label {
@@ -15,11 +16,11 @@ interface Label {
 export default async (issueComment: IssueComment) => {
   const issue = issueComment.issue
   const comment = issueComment.comment
-  const api = danger.github.api
+  const api = new Octokit()
   console.log("--------- danger")
   console.log(danger)
-  console.log("--------- github")
-  console.log(danger.github)
+  console.log("--------- api")
+  console.log(api)
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
