@@ -16,6 +16,10 @@ export default async (issueComment: IssueComment) => {
   const issue = issueComment.issue
   const comment = issueComment.comment
   const api = danger.github.api
+  console.log("--------- danger")
+  console.log(danger)
+  console.log("--------- github")
+  console.log(danger.github)
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
