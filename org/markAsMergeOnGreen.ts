@@ -1,5 +1,5 @@
+import { danger } from "danger"
 import { IssueComment } from "github-webhook-event-types"
-import * from "danger"
 
 // The shape of a label
 interface Label {
