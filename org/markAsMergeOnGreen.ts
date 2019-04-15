@@ -1,6 +1,6 @@
 import { danger } from "danger"
 import { IssueComment } from "github-webhook-event-types"
-import Octokit from '@octokit/rest';
+import Octokit = require("@octokit/rest")
 
 // The shape of a label
 interface Label {
